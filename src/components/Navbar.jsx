@@ -1,12 +1,67 @@
-export default function Navbar() {
+"use client";
+import React, { useState } from "react";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+
+const Navbar = () => {
+    const [nav, setNav] = useState(false);
+    const [contactOpen, setContactOpen] = useState(false);
+
+    const handleNav = () => {
+        setNav(!nav);
+        setContactOpen(false);
+    };
+
     return (
-        <nav className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+        <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-black border-b">
+            {/* Title */}
             <h1 className="text-xl font-bold text-blue-500">Halona Portfolio</h1>
-            <ul className="flex gap-4 text-gray-600 font-medium">
-                <li><a href="#certs" className="hover:text-blue-600">Certifications</a></li>
-                <li><a href="#services" className="hover:text-blue-600">Services</a></li>
-                <li><a href="#contact" className="hover:text-blue-600">Contact</a></li>
+            {/* Desktop Menu */}
+            <ul className="hidden md:flex flex-1 justify-end cursor-pointer">
+                <li className="p-4 hover-underline">Home</li>
+                <li className="p-4 hover-underline">Certifications</li>
+                <li className="p-4 hover-underline">About</li>
+                <li className="p-4 relative hover-underline"
+                    onClick={() => setContactOpen(!contactOpen)}
+                >
+                    Contact
+                    {contactOpen && (
+                        <div className="absolute left-0 top-12 bg-white shadow-md border border-gray-300 rounded-lg w-40">
+                            <span className="block px-4 py-2 text-black hover:text-blue-700 hover:bg-gray-200 transition-colors duration-200">Instagram</span>
+                            <span className="block px-4 py-2 text-black hover:text-blue-700 hover:bg-gray-200 transition-colors duration-200">Facebook</span>
+                        </div>
+                    )}
+                </li>
             </ul>
-        </nav>
+            {/* Hamburger Icon */}
+            <div className="flex items-center space-x-4">
+                <div onClick={handleNav} className="block md:hidden ml-4 hover:text-blue-700 transition-colors duration-200">
+                    {nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
+                </div>
+            </div>
+            {/* Mobile Menu */}
+            <div className={`fixed top-0 left-0 h-full w-[60%] bg-white border-r border-gray-300 z-10 transform transition-transform duration-300 ease-in-out 
+                ${nav ? "translate-x-0" : "-translate-x-full"}`}>
+                <div className="p-4">
+                    <h1 className="text-xl font-bold text-blue-500 mb-8">Halona Portfolio</h1>
+                    <ul className="uppercase flex flex-col gap-6 text-gray-600 font-medium">
+                        <li className="p-2 border-b border-gray-600">Home</li>
+                        <li className="p-2 border-b border-gray-600">Certifications</li>
+                        <li className="p-2 border-b border-gray-600">About</li>
+                        <li className="p-2 relative hover-underline"
+                            onClick={() => setContactOpen(!contactOpen)}>
+                            Contact
+                            {contactOpen && (
+                                <div className="absolute left-0 top-12 bg-white shadow-md border border-gray-300 rounded-lg w-40">
+                                    <span className="block px-4 py-2 text-black hover:text-blue-700 hover:bg-gray-200 transition-colors duration-200">Instagram</span>
+                                    <span className="block px-4 py-2 text-black hover:text-blue-700 hover:bg-gray-200 transition-colors duration-200">Facebook</span>
+                                </div>
+                            )}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     );
-}
+};
+
+export default Navbar;
