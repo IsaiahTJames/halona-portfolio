@@ -8,30 +8,29 @@ const Navbar = () => {
 
     const handleNav = () => {
         setNav(!nav);
-        setContactOpen(false);
     };
 
     return (
-        <div className="flex justify-between items-center h-24 max-w-[1240px] mx-auto px-4 text-black border-b">
+        <div className="flex items-center justify-center h-24 max-w-[1240px] mx-auto px-4 text-black border-b">
             {/* Title */}
-            <h1 className="text-xl font-bold text-blue-500">Halona Portfolio</h1>
-            {/* Desktop Menu */}
-            <ul className="hidden md:flex flex-1 justify-end cursor-pointer">
-                <li className="p-4 hover-underline">Home</li>
-                <li className="p-4 hover-underline">Certifications</li>
-                <li className="p-4 hover-underline">About</li>
-                <li className="p-4 relative hover-underline"
-                    onClick={() => setContactOpen(!contactOpen)}
-                >
-                    Contact
-                    {contactOpen && (
-                        <div className="absolute left-0 top-12 bg-white shadow-md border border-gray-300 rounded-lg w-40">
-                            <span className="block px-4 py-2 text-black hover:text-blue-700 hover:bg-gray-200 transition-colors duration-200">Instagram</span>
-                            <span className="block px-4 py-2 text-black hover:text-blue-700 hover:bg-gray-200 transition-colors duration-200">Facebook</span>
-                        </div>
-                    )}
-                </li>
-            </ul>
+            <div className="flex flex-1">
+                <h1 className="text-2xl font-bold text-blue-500">Halona Portfolio</h1>
+            </div>
+            {/* Navigation Links */}
+            <div className="flex flex-1 justify-center">
+                <ul className="hidden md:flex space-x-4 text-[16px] font-medium">
+                    <li className="p-4 hover-underline cursor-pointer">Home</li>
+                    <li className="p-4 hover-underline cursor-pointer">Certifications</li>
+                    <li className="p-4 hover-underline cursor-pointer">Services</li>
+                    <li className="p-4 hover-underline cursor-pointer">Contact</li>
+                </ul>
+            </div>
+            {/* Get In Touch Button */}
+            <div className="hidden md:flex flex-1 justify-end">
+                <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-300">
+                    Get In Touch
+                </button>
+            </div>
             {/* Hamburger Icon */}
             <div className="flex items-center space-x-4">
                 <div onClick={handleNav} className="block md:hidden ml-4 hover:text-blue-700 transition-colors duration-200">
