@@ -11,7 +11,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="flex items-center justify-center h-24 max-w-[1240px] mx-auto px-4 text-black border-b">
+        <div className="flex items-center justify-center h-24 w-full mx-auto px-14 text-black border-b">
             {/* Title */}
             <div className="flex flex-1">
                 <h1 className="text-2xl font-bold text-blue-500">Halona Portfolio</h1>
@@ -19,16 +19,18 @@ const Navbar = () => {
             {/* Navigation Links */}
             <div className="flex flex-1 justify-center">
                 <ul className="hidden md:flex space-x-4 text-[16px] font-medium">
-                    <li className="p-4 hover-underline cursor-pointer">Home</li>
-                    <li className="p-4 hover-underline cursor-pointer">Certifications</li>
-                    <li className="p-4 hover-underline cursor-pointer">Services</li>
-                    <li className="p-4 hover-underline cursor-pointer">Contact</li>
+                    <li className="p-2">
+                        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full font-medium transition-colors duration-300">HOME</button>
+                    </li>
+                    <li className="p-4 hover:text-blue-500 cursor-pointer">CERTIFICATIONS</li>
+                    <li className="p-4 hover:text-blue-500 cursor-pointer">SERVICES</li>
+                    <li className="p-4 hover:text-blue-500 cursor-pointer">CONTACT</li>
                 </ul>
             </div>
             {/* Get In Touch Button */}
             <div className="hidden md:flex flex-1 justify-end">
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition-colors duration-300">
-                    Get In Touch
+                    GET IN TOUCH
                 </button>
             </div>
             {/* Hamburger Icon */}
